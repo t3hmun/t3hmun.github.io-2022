@@ -13,7 +13,7 @@ Those projects we good for learning, however they were all abandoned when the th
 
 This time I'm using an existing working framework, I am not going to re-inventing the wheel for fun (yet).
 
-I picked Astro because it has clean HTML output with no JS by default, perfectly suited to a static website.
+I picked [Astro](https://github.com/withastro/astro) because it has clean HTML output with no JS by default, perfectly suited to a static website.
 
 ## Setup
 
