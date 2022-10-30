@@ -1,12 +1,16 @@
 ---
 layout: "../../layouts/BlogPost.astro"
-title: "Markdown Style Guide"
-description: "Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro."
-pubDate: "Jul 01 2022"
+title: "Feature Reference"
+description: "A page full of features that can be used when writing pages of this website."
+pubDate: "2022-10-30T14:00:00Z"
 ---
-> This is a template helper page.
 
-Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.
+> This is a helper page for writing this website, not a real blog page.
+
+## Blog Post Filename and Frontmatter
+
+The filename should be of the format `yyyy-MM-dd-lower-case-title.md`, this is just for consistency and easy sorting when browsing files.
+
 
 ## Headings
 
