@@ -17,6 +17,8 @@ I picked [Astro](https://github.com/withastro/astro) because it has clean HTML o
 
 ## Setup
 
+### Astro Site Generation via GitHub Actions 
+
 - `npm create astro@latest -- --template blog` default / yes all options
 - Delete unwanted pages and images
 - Fix `config.ts` metadata
@@ -24,5 +26,7 @@ I picked [Astro](https://github.com/withastro/astro) because it has clean HTML o
 - Create `.github/workflows/deploy.yml` using [these instructions](.github/workflows/deploy.yml).
 - Now it works.
 
+### Domain
 
+TODO Point my domain
 
