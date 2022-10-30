@@ -28,5 +28,12 @@ I picked [Astro](https://github.com/withastro/astro) because it has clean HTML o
 
 ### Domain
 
-TODO Point my domain
+- Change `Pages` settings in the github repo ot point to my www domain
+- Update CNAME record to point to `t3hmun.github.io`
+- Done. 
+
+## Success
+
+I've done everything needed, this is now a working site that publishes itself automatically when anything new is pushed.
+
 
