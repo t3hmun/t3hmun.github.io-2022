@@ -17,12 +17,12 @@ I picked [Astro](https://github.com/withastro/astro) because it has clean HTML o
 
 ## Setup
 
-### Astro Site Generation via GitHub Actions 
+### Astro Site Generation via GitHub Actions
 
 - `npm create astro@latest -- --template blog` default / yes all options
 - Delete unwanted pages and images
 - Fix `config.ts` metadata
-- Update url in `astro.config.mjs` 
+- Update url in `astro.config.mjs`
 - Create `.github/workflows/deploy.yml` using [these instructions](.github/workflows/deploy.yml).
 - Now it works.
 
@@ -30,10 +30,8 @@ I picked [Astro](https://github.com/withastro/astro) because it has clean HTML o
 
 - Change `Pages` settings in the github repo ot point to my www domain
 - Update CNAME record to point to `t3hmun.github.io`
-- Done. 
+- Done.
 
 ## Success
 
 I've done everything needed, this is now a working site that publishes itself automatically when anything new is pushed.
-
-
