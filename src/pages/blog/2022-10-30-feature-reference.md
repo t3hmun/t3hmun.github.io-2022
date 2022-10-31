@@ -11,16 +11,20 @@ pubDate: "2022-10-30T14:00:00Z"
 
 The filename should be of the format `yyyy-MM-dd-lower-case-title.md`, this is just for consistency and easy sorting when browsing files.
 
-
 ## Headings
 
 The following HTML `<h1>`—`<h6>` elements represent six levels of section headings. `<h1>` is the highest section level while `<h6>` is the lowest.
 
 # H1
+
 ## H2
+
 ### H3
+
 #### H4
+
 ##### H5
+
 ###### H6
 
 ## Paragraph
@@ -40,7 +44,7 @@ The blockquote element represents content that is quoted from another source, op
 #### Blockquote without attribution
 
 > Tiam, ad mint andaepu dandae nostion secatur sequo quae.  
-> **Note** that you can use *Markdown syntax* within a blockquote.
+> **Note** that you can use _Markdown syntax_ within a blockquote.
 
 #### Blockquote with attribution
 
@@ -52,21 +56,21 @@ The blockquote element represents content that is quoted from another source, op
 ## Tables
 
 | Italics   | Bold     | Code   |
-| --------  | -------- | ------ |
-| *italics* | **bold** | `code` |
+| --------- | -------- | ------ |
+| _italics_ | **bold** | `code` |
 
 ## Code Blocks
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Example HTML5 Document</title>
-</head>
-<body>
-  <p>Test</p>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Example HTML5 Document</title>
+  </head>
+  <body>
+    <p>Test</p>
+  </body>
 </html>
 ```
 
@@ -80,19 +84,19 @@ The blockquote element represents content that is quoted from another source, op
 
 #### Unordered List
 
-* List item
-* Another item
-* And another item
+- List item
+- Another item
+- And another item
 
 #### Nested list
 
-* Fruit
-  * Apple
-  * Orange
-  * Banana
-* Dairy
-  * Milk
-  * Cheese
+- Fruit
+  - Apple
+  - Orange
+  - Banana
+- Dairy
+  - Milk
+  - Cheese
 
 ## Other Elements — abbr, sub, sup, kbd, mark
 
