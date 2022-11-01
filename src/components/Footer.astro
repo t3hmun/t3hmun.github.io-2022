@@ -2,12 +2,26 @@
 const today = new Date();
 ---
 
-<footer>
-  &copy; {today.getFullYear()} t3hmun. All rights reserved.
+<footer class="footer">
+  <div class="hatch-box">
+    <a href="#">Top</a>
+  </div>
+  &copy; {today.getFullYear()} t3hmun | CC-BY-SA-4.0
 </footer>
-<style>
-  footer {
-    padding: 25px;
-    text-align: center;
+<script>
+  console.log("script start");
+  // Script to toggle light dark theme by changing the stylesheet.
+  const button = document.getElementById("theme-toggle");
+  const mainCssEle = document.getElementById("main-css");
+  if (button && mainCssEle) {
+    button.onclick = () => {
+      let cssUrl = mainCssEle.getAttribute("href");
+      if (cssUrl) {
+        if (cssUrl.endsWith("dark.css"))
+          cssUrl = cssUrl.replace("dark", "light");
+        else cssUrl = cssUrl.replace("light", "dark");
+        mainCssEle.setAttribute("href", cssUrl);
+      }
+    };
   }
-</style>
+</script>
