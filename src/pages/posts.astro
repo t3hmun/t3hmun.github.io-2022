@@ -11,31 +11,46 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
     new Date(b.frontmatter.pubDate).valueOf() -
     new Date(a.frontmatter.pubDate).valueOf()
 );
+const years = [
+  ...new Set(posts.map((p) => new Date(p.frontmatter.pubDate).getFullYear())),
+];
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-
   </head>
   <body>
     <Header />
     <main>
-      <section>
-        <ul>
-          {
-            posts.map((post) => (
-              <li>
-                <time datetime={post.frontmatter.pubDate}>
-                  {friendlyDate(post.frontmatter.pubDate)}
-                </time>
-                <a href={post.url}>{post.frontmatter.title}</a>
-              </li>
-            ))
-          }
-        </ul>
-      </section>
+      {
+        years.map((year) => (
+          <section>
+            <h2>{year}</h2>
+            {posts
+              .filter(
+                (p) => new Date(p.frontmatter.pubDate).getFullYear() === year
+              )
+              .map((post) => (
+                <>
+                  <h3>
+                    <a href={post.url}>{post.frontmatter.title}</a>
+                  </h3>
+                  <time
+                    class="index-date-footer"
+                    datetime={post.frontmatter.pubDate}
+                  >
+                    {friendlyDate(post.frontmatter.pubDate)}
+                  </time>
+                  {post.frontmatter.description && (
+                    <p>{post.frontmatter.description}</p>
+                  )}
+                </>
+              ))}
+          </section>
+        ))
+      }
     </main>
     <Footer />
   </body>

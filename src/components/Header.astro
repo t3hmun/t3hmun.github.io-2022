@@ -7,12 +7,23 @@ import { SITE_TITLE } from "../config";
   <div class="masthead">
     {SITE_TITLE}
   </div>
-  <nav>
-    <HeaderLink href="/">Home</HeaderLink>
-    <HeaderLink href="/posts">Posts</HeaderLink>
-    <HeaderLink href="/about">About</HeaderLink>
-    <HeaderLink href="https://github.com/t3hmun" target="_blank"
-      >GitHub</HeaderLink
-    >
+  <nav class="main-nav">
+    <ul>
+      <li>
+        <HeaderLink href="/">Home</HeaderLink>
+      </li>
+      <li>
+        <HeaderLink href="/posts">Posts</HeaderLink>
+      </li>
+      <li>
+        <HeaderLink href="/about">About</HeaderLink>
+      </li>
+      <li>
+        <HeaderLink href="https://github.com/t3hmun" target="_blank"
+          >GitHub</HeaderLink
+        >
+      </li>
+      <li><button id="theme-toggle">Switch Theme</button></li>
+    </ul>
   </nav>
 </header>
