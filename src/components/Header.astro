@@ -1,29 +1,37 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../config";
+const liStyle = "display: inline; padding: 0rem 0.5rem";
 ---
 
 <header>
-  <div class="masthead">
+  <div
+    class="content-width"
+    style="text-align: center; font-size: 3rem; line-height: 3rem; margin: 1rem auto"
+  >
     {SITE_TITLE}
   </div>
-  <nav class="main-nav">
-    <ul>
-      <li>
+  <nav class="content-width" style="text-align: center;">
+    <ul
+      style="list-style-type: none; width: auto; max-width: none; padding: 0 0 0 0;"
+    >
+      <li style={liStyle}>
         <HeaderLink href="/">Home</HeaderLink>
       </li>
-      <li>
+      <li style={liStyle}>
         <HeaderLink href="/posts">Posts</HeaderLink>
       </li>
-      <li>
+      <li style={liStyle}>
         <HeaderLink href="/about">About</HeaderLink>
       </li>
-      <li>
+      <li style={liStyle}>
         <HeaderLink href="https://github.com/t3hmun" target="_blank"
           >GitHub</HeaderLink
         >
       </li>
-      <li><button id="theme-toggle">Switch Theme</button></li>
+      <li style={liStyle}>
+        <button id="theme-toggle">Switch Theme</button>
+      </li>
     </ul>
   </nav>
 </header>
