@@ -2,7 +2,9 @@
 layout: "../layouts/BlogPost.astro"
 title: "About"
 description: "About me"
-updatedDate: "October 30 2022"
+updatedDate: "2022-11-02T23:30:00Z"
 ---
 
-t3hmun is intended to read as `The Mun`.
+In most places on the internet t3hmun is my handle. It is intended to read as `The Mun`, which is derived from the start of my name, Manish.
+
+
