@@ -3,6 +3,13 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import { friendlyDate } from "../components/Formats";
+
+const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
+  (a, b) =>
+    new Date(b.frontmatter.pubDate).valueOf() -
+    new Date(a.frontmatter.pubDate).valueOf()
+);
 ---
 
 <!DOCTYPE html>
@@ -13,13 +20,30 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
   <body>
     <Header title={SITE_TITLE} />
     <main>
+      <h1>Home</h1>
       <h2>Welcome</h2>
       <p>
         This is my website, which is in the process of being re-written
         (November 2022). Nothing is ready for viewing.
       </p>
       <h2>Recent Posts</h2>
-      <p>TODO: Recent posts</p>
+      {
+        posts.map((post) => (
+          <>
+            <h3 style="margin: 1rem 0;">
+              <a href={post.url}>{post.frontmatter.title}</a>
+            </h3>
+            <div class="content-width">
+              <span class="fg-muted" style="margin-right: 1rem">
+                {friendlyDate(post.frontmatter.pubDate)}
+              </span>
+              {post.frontmatter.description && (
+                <span>{post.frontmatter.description}</span>
+              )}
+            </div>
+          </>
+        ))
+      }
     </main>
     <Footer />
   </body>
