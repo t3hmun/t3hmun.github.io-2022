@@ -143,9 +143,12 @@ p {
 ul,
 ol {
   max-width: $reading-width;
-  display: block;
-  margin: $line-height auto;
+  margin: 0 auto;
   padding: 0 $gutter;
+}
+
+li {
+  margin-left: 1rem;
 }
 
 code {
