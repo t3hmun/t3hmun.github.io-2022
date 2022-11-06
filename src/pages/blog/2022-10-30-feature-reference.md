@@ -35,10 +35,7 @@ pubDate: "2022-11-02T23:30:00Z"
 See the top of the page for the `h1`. As a general rule I only ever have a single `h1` on any page, it is the title and start of the main content. 
 The heading directly above this text should be a `h2`.
 
-The text under every heading is a demonstration of a paragraph of text, a `p` tag.
-
-Headings fill the full content-width space. 
-This is wider than the paragraphs of text which are restricted to reading-width.
+The text under every heading is a demonstration of a paragraph of text, a `p` tag, mostly extracts taken from the [Wikipedia page on Johannes Gutenberg](https://en.wikipedia.org/wiki/Johannes_Gutenberg).
 
 ### Header 3
 
@@ -84,15 +81,14 @@ The blockquote element represents content that is quoted from another source, op
 
 #### Blockquote without attribution
 
-> Tiam, ad mint andaepu dandae nostion secatur sequo quae.  
-> **Note** that you can use _Markdown syntax_ within a blockquote.
+> It is tempting to incorrectly use blockquotes asides and information boxes.
 
 #### Blockquote with attribution
 
-> Don't communicate by sharing memory, share memory by communicating.<br>
-> — <cite>Rob Pike[^1]</cite>
+> Franz Liszt (22 October 1811 – 31 July 1886) was a Hungarian composer, pianist and teacher of the Romantic period. With a diverse body of work spanning more than six decades, he is considered to be one of the most prolific and influential composers of his era and remains one of the most popular composers in modern concert piano repertoire.<br>
+> — <cite>Wikipedia[^1]</cite>
 
-[^1]: The above quote is excerpted from Rob Pike's [talk](https://www.youtube.com/watch?v=PAAkCSZUG1c) during Gopherfest, November 18, 2015.
+[^1]: [Franz Liszt article on Wikipedia](https://en.wikipedia.org/wiki/Franz_Liszt), retrieved 6<sup>th</sup> November 2022.  
 
 ## Tables
 
@@ -154,3 +150,11 @@ X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
 Press <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd></kbd> to end the session.
 
 Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.
+
+This is some writing, a paragraph of text followed by an aside, which is the followed by another paragraph.  
+
+<aside>This is an aside, some tangential information.</aside>
+
+As you can see I haven't thought about how to format the aside properly.
+Maybe it should be formatted like the example in [the MDN page for aside](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside).
+
