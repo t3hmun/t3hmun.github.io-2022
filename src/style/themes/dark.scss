@@ -36,8 +36,12 @@ $basic-border: math.div($base-size, 16);
 $h1-shadow: $basic-border * 3;
 $h2-shadow: $basic-border * 2;
 $h3-shadow: $basic-border * 1;
+$h4-shadow: $basic-border * 1;
+$h5-shadow: $basic-border * 1;
+$h6-shadow: $basic-border * 1;
 
-$header-line-height: $line-height * 2;
+$header-line-height-large: $line-height * 2;
+$header-line-height-small: $line-height * 1.5;
 $masthead-line-height: $line-height * 3;
 
 // This is FONT size.
@@ -64,8 +68,8 @@ $header-weight: 300;
 $back-colour: #333 !default;
 $fore-colour: #eee !default;
 $text-colour: $fore-colour;
-$theme-colour: #fc8803;
-$muted-colour: #b15f02;
+$theme-colour: rgb(255, 162, 55);
+$muted-colour: #b15f02e4;
 $link-colour: #80b418;
 
 $link-hover-colour: $theme-colour;
@@ -77,19 +81,42 @@ $muted-fore-colour: color.scale(
 ) !default;
 
 $h1-colour: $theme-colour;
-$h2-colour: color.mix($text-colour, $theme-colour, 50%);
-$h3-colour: color.mix($text-colour, $theme-colour, 50%);
-$h4-colour: color.mix($text-colour, $theme-colour, 50%);
-$h5-colour: color.mix($text-colour, $theme-colour, 75%);
+$h2-colour: $theme-colour;
+$h3-colour: color.mix($text-colour, $theme-colour, 30%);
+$h4-colour: color.mix($text-colour, $theme-colour, 60%);
+$h5-colour: color.mix($text-colour, $theme-colour, 90%);
 $h6-colour: color.mix($text-colour, $theme-colour, 100%);
+
+$colours: (
+  "text": $text-colour,
+  "fore": $fore-colour,
+  "back": $back-colour,
+  "muted": $muted-colour,
+  "link": $link-colour,
+  "muted-fore": $muted-fore-colour,
+  "muted-back": $muted-back-colour,
+  "h1": $h1-colour,
+  "h2": $h2-colour,
+  "h3": $h3-colour,
+  "h4": $h4-colour,
+  "h5": $h5-colour,
+  "h6": $h6-colour,
+);
 
 $main-font: sans-serif;
 $mono-font: monospace;
 $code-font: monospace;
 
+// Make all colours CSS variables so they can be swapped out smoothly by JS.
 :root {
-  color: $fore-colour;
-  background-color: $back-colour;
+  @each $name, $value in $colours {
+    --#{$name}-colour: #{$value};
+  }
+}
+
+:root {
+  color: var(--fore-colour);
+  background-color: var(--back-colour);
   font-size: $base-size;
   font-family: $main-font;
   font-weight: $text-weight;
@@ -106,7 +133,13 @@ body {
   line-height: $line-height;
 }
 
-p,
+p {
+  max-width: $reading-width;
+  display: block;
+  margin: $line-height auto;
+  padding: 0 $gutter;
+}
+
 ul,
 ol {
   max-width: $reading-width;
@@ -117,17 +150,17 @@ ol {
 
 code {
   font-family: $code-font;
-  color: $muted-fore-colour;
+  color: var(--muted-fore-colour);
   display: inline-block;
 }
 
 a {
   text-decoration: none;
-  color: $link-colour;
+  color: var(--link-colour);
 }
 
 a:hover {
-  color: $link-hover-colour;
+  color: var(--link-hover-colour);
 }
 
 img {
@@ -142,7 +175,7 @@ dl {
   display: block;
   margin: $gutter auto;
   padding: 0 $gutter;
-  background: $muted-back-colour;
+  background: var(--muted-back-colour);
 
   // Reset p to fit the element instead of reading-width.
   p {
@@ -160,7 +193,7 @@ table {
 
 blockquote {
   // The fat line on the left that sets out a blockquote.
-  border-left: solid $blockquote-side-line $muted-fore-colour;
+  border-left: solid var(--blockquote-side-line var(--muted-fore-colour));
 }
 
 // Most of the styling for pre is done by the syntax stylesheet.
@@ -172,7 +205,7 @@ pre {
   margin: $gutter auto;
   padding: 0 $gutter;
   font-family: $code-font;
-  border: solid $syntax-border-thickness $muted-back-colour;
+  border: solid $syntax-border-thickness var(--muted-back-colour);
   overflow-x: auto;
 }
 
@@ -183,57 +216,70 @@ h4,
 h5,
 h6 {
   font-weight: $header-weight;
-  line-height: $header-line-height;
   padding: 0 $gutter;
   margin: $line-height 0;
+}
+
+h1,
+h2,
+h3 {
+  line-height: $header-line-height-large;
+}
+h4,
+h5,
+h6 {
+  line-height: $header-line-height-small;
 }
 
 // h1 {
 //   font-size: $h1-size;
 //   font-weight: $h1-weight;
-//   color: $h1-colour;
+//   color: var(--h1-colour);
 //   margin-right: $h1-shadow;
 //   // Box shadows don't affect box-model so the margin does not need to be recalculated.
-//   box-shadow: $h1-shadow $h1-shadow 0 $theme-colour;
+//   box-shadow: $h1-shadow $h1-shadow 0 var(--theme-colour);
 // }
 
 // This version has a background
 h1 {
   text-align: center;
   font-size: $h1-size;
-  color: $h1-colour;
-  background-color: $muted-back-colour;
+  color: var(--h1-colour);
+  background-color: var(--muted-back-colour);
   margin-right: $h1-shadow;
   // Box shadows don't affect box-model so the margin does not need to be recalculated.
-  box-shadow: 0 0 0 $theme-colour;
+  box-shadow: 0 0 0 var(--theme-colour);
 }
 
 h2 {
   font-size: $h2-size;
-  color: $h2-colour;
+  color: var(--h2-colour);
   margin-right: $h2-shadow;
-  box-shadow: 0 $h2-shadow 0 $muted-fore-colour;
+  box-shadow: 0 $h2-shadow 0 var(--h2-colour);
 }
 
 h3 {
   font-size: $h3-size;
-  color: $h3-colour;
-  box-shadow: 0 $h3-shadow 0 $muted-back-colour;
+  color: var(--h3-colour);
+  box-shadow: 0 $h3-shadow 0 var(--h3-colour);
 }
 
 h4 {
   font-size: $h4-size;
-  color: $h4-colour;
+  color: var(--h4-colour);
+  box-shadow: 0 $h4-shadow 0 var(--h4-colour);
 }
 
 h5 {
   font-size: $h5-size;
-  color: $h5-colour;
+  color: var(--h5-colour);
+  box-shadow: 0 $h5-shadow 0 var(--h5-colour);
 }
 
 h6 {
   font-size: $h6-size;
-  color: $h6-colour;
+  color: var(--h6-colour);
+  box-shadow: 0 $h6-shadow 0 var(--h6-colour);
 }
 
 //
@@ -243,10 +289,10 @@ h6 {
 .hatch-box {
   background: repeating-linear-gradient(
     120deg,
-    $back-colour,
-    $back-colour 3px,
-    $muted-back-colour 2px,
-    $muted-back-colour 4px
+    var(--back-colour),
+    var(--back-colour) 3px,
+    var(--muted-back-colour) 2px,
+    var(--muted-back-colour) 4px
   );
 }
 
@@ -284,22 +330,6 @@ $sizes: (
     font-size: $size;
   }
 }
-
-$colours: (
-  "text": $text-colour,
-  "fore": $fore-colour,
-  "back": $back-colour,
-  "muted": $muted-colour,
-  "link": $link-colour,
-  "muted-fore": $muted-fore-colour,
-  "muted-back": $muted-back-colour,
-  "h1": $h1-colour,
-  "h2": $h2-colour,
-  "h3": $h3-colour,
-  "h4": $h4-colour,
-  "h5": $h5-colour,
-  "h6": $h6-colour,
-);
 
 @each $name, $colour in $colours {
   .bg-#{$name} {

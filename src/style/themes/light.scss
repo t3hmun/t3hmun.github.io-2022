@@ -1,4 +1,53 @@
-@use "dark" with (
-  $fore-colour: #111,
-  $back-colour: #eee
+// This outputs CSS to overwrite the :root colour variables to make a light theme.
+
+@use "sass:color";
+@use "sass:math";
+
+$back-colour: #eee !default;
+$fore-colour: #333 !default;
+$text-colour: $fore-colour;
+$theme-colour: rgb(255, 162, 55);
+$muted-colour: #b15f02;
+$link-colour: #80b418;
+
+$link-hover-colour: $theme-colour;
+
+$muted-back-colour: (color.mix($theme-colour, $back-colour, 10%)) !default;
+$muted-fore-colour: color.scale(
+  color.mix($theme-colour, $text-colour, 50%),
+  $lightness: -10%
+) !default;
+
+$h1-colour: $theme-colour;
+$h2-colour: $theme-colour;
+$h3-colour: color.mix($text-colour, $theme-colour, 30%);
+$h4-colour: color.mix($text-colour, $theme-colour, 60%);
+$h5-colour: color.mix($text-colour, $theme-colour, 90%);
+$h6-colour: color.mix($text-colour, $theme-colour, 100%);
+
+$colours: (
+  "text": $text-colour,
+  "fore": $fore-colour,
+  "back": $back-colour,
+  "muted": $muted-colour,
+  "link": $link-colour,
+  "muted-fore": $muted-fore-colour,
+  "muted-back": $muted-back-colour,
+  "h1": $h1-colour,
+  "h2": $h2-colour,
+  "h3": $h3-colour,
+  "h4": $h4-colour,
+  "h5": $h5-colour,
+  "h6": $h6-colour,
 );
+
+$main-font: sans-serif;
+$mono-font: monospace;
+$code-font: monospace;
+
+// Make all colours CSS variables so they can be swapped out smoothly by JS.
+:root {
+  @each $name, $value in $colours {
+    --#{$name}-colour: #{$value};
+  }
+}

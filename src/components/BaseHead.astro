@@ -19,8 +19,43 @@ const { title, description, image = "/placeholder-social.jpg" } = Astro.props;
 
 <!--Theme-->
 <link id="main-css" rel="stylesheet" href="/dark.css" />
+<link id="theme-css" rel="stylesheet" href="/dark.css" />
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+
+<script>
+  type Theme = "dark" | "light";
+  const themes: Theme[] = ["dark", "light"];
+
+  // Script to toggle light dark theme by changing the stylesheet.
+  const themeCssId = "theme-css";
+  const mainCssId = "main-css";
+  const button = document.getElementById("theme-toggle");
+  const mainCssEle = document.getElementById(mainCssId);
+
+  function getTheme(): Theme {
+    return (window.localStorage.getItem("theme") ?? "dark") as Theme;
+  }
+
+  function setTheme(theme: Theme) {
+    const themeEle = document.getElementById(themeCssId) as HTMLLinkElement;
+    themeEle.href = `/${theme}.css`;
+    window.localStorage.setItem("theme", theme);
+  }
+
+  if (button && mainCssEle) {
+    button.onclick = () => {
+      const current = getTheme();
+      const idx = themes.indexOf(current);
+      const nextTheme = (idx + 1) % themes.length;
+      setTheme(themes[nextTheme]);
+    };
+  }
+
+  (function setStoredTheme() {
+    setTheme(getTheme());
+  })();
+</script>

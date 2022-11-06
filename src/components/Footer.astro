@@ -10,20 +10,3 @@ const today = new Date();
     &copy; {today.getFullYear()} t3hmun | CC-BY-SA-4.0
   </div>
 </footer>
-<script>
-  console.log("script start");
-  // Script to toggle light dark theme by changing the stylesheet.
-  const button = document.getElementById("theme-toggle");
-  const mainCssEle = document.getElementById("main-css");
-  if (button && mainCssEle) {
-    button.onclick = () => {
-      let cssUrl = mainCssEle.getAttribute("href");
-      if (cssUrl) {
-        if (cssUrl.endsWith("dark.css"))
-          cssUrl = cssUrl.replace("dark", "light");
-        else cssUrl = cssUrl.replace("light", "dark");
-        mainCssEle.setAttribute("href", cssUrl);
-      }
-    };
-  }
-</script>
