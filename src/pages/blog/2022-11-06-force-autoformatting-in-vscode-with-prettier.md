@@ -9,16 +9,15 @@ Manually formatting code gets in the way of doing work, badly formatted code is 
 Different opinions on formatting usually leads to endless bikeshedding (this can happen with or without a team to argue with).
 The simple way to solve all these problems is to install Prettier and set it to format on save.
 
-* Prettier has all the opinions on how to format, there is no debate allowed
-* Formatting is done automatically on save so you 
-  * Never end up with commits that are just for formatting 
-  * The project committed VsCode setting means nobody has to be told do it, the formatting just happens
+- Prettier has all the opinions on how to format, there is no debate allowed
+- Formatting is done automatically on save so you
+  - Never end up with commits that are just for formatting
+  - The project committed VsCode setting means nobody has to be told do it, the formatting just happens
 
 I initially felt some resistance to not allowing myself or anyone to have opinions on formatting, but after a while everyone enjoys not thinking about it at all.
 I see this approach getting very popular, these are my instructions for setup.
 
-
-## Install prettier 
+## Install prettier
 
 - The VsCode extension `esbenp.prettier-vscode`
   - This is the one manual step that I have ask to colleagues to do
@@ -49,7 +48,6 @@ I see this approach getting very popular, these are my instructions for setup.
     - There is a little risk of code or comments breaking
     - Git blame will point to you on every reformatted line of code
     - If it is done it should be a single PR with only formatting and nothing else
-
 
 ## Enjoy
 

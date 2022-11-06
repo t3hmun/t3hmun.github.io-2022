@@ -24,22 +24,22 @@ description: "A test page of everything that can be output when writing pages fo
 pubDate: "2022-11-02T23:30:00Z"
 ---
 ```
+
 - The layout is always the same (so far), one day I'll code it as a default.
 - The title will be the one and only `h1` of the page (unless the post uses multiple `h1`s, but that should not be done).
 - The description is the only optional field, it is used in indexes / sets of links ot posts.
 - The pubDate should be written in [ISO 8601 UTC](https://en.wikipedia.org/wiki/ISO_8601) format, I'm used to it and the computer always understands it correctly.
 
-
 ## Headings
 
-See the top of the page for the `h1`. As a general rule I only ever have a single `h1` on any page, it is the title and start of the main content. 
+See the top of the page for the `h1`. As a general rule I only ever have a single `h1` on any page, it is the title and start of the main content.
 The heading directly above this text should be a `h2`.
 
 The text under every heading is a demonstration of a paragraph of text, a `p` tag, mostly extracts taken from the [Wikipedia page on Johannes Gutenberg](https://en.wikipedia.org/wiki/Johannes_Gutenberg).
 
 ### Header 3
 
-Johannes Gensfleisch zur Laden zum Gutenberg (/ˈɡuːtənbɜːrɡ/; c. 1400 – 3 February 1468) was a German inventor, printer, publisher, and goldsmith who introduced printing to Europe with his mechanical movable-type printing press. 
+Johannes Gensfleisch zur Laden zum Gutenberg (/ˈɡuːtənbɜːrɡ/; c. 1400 – 3 February 1468) was a German inventor, printer, publisher, and goldsmith who introduced printing to Europe with his mechanical movable-type printing press.
 
 His work started the Printing Revolution in Europe and is regarded as a milestone of the second millennium, ushering in the modern period of human history.
 
@@ -88,7 +88,7 @@ The blockquote element represents content that is quoted from another source, op
 > Franz Liszt (22 October 1811 – 31 July 1886) was a Hungarian composer, pianist and teacher of the Romantic period. With a diverse body of work spanning more than six decades, he is considered to be one of the most prolific and influential composers of his era and remains one of the most popular composers in modern concert piano repertoire.<br>
 > — <cite>Wikipedia[^1]</cite>
 
-[^1]: [Franz Liszt article on Wikipedia](https://en.wikipedia.org/wiki/Franz_Liszt), retrieved 6<sup>th</sup> November 2022.  
+[^1]: [Franz Liszt article on Wikipedia](https://en.wikipedia.org/wiki/Franz_Liszt), retrieved 6<sup>th</sup> November 2022.
 
 ## Tables
 
@@ -100,7 +100,7 @@ The blockquote element represents content that is quoted from another source, op
 
 You may notice that the code blocks use the full content width.
 Code often needs the extra horizontal space.
-There is no shortage of code that greatly exceeds 80 characters a line. 
+There is no shortage of code that greatly exceeds 80 characters a line.
 
 ```html
 <!DOCTYPE html>
@@ -151,10 +151,9 @@ Press <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd></kbd> to end the ses
 
 Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.
 
-This is some writing, a paragraph of text followed by an aside, which is the followed by another paragraph.  
+This is some writing, a paragraph of text followed by an aside, which is the followed by another paragraph.
 
 <aside>This is an aside, some tangential information.</aside>
 
 As you can see I haven't thought about how to format the aside properly.
 Maybe it should be formatted like the example in [the MDN page for aside](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside).
-
