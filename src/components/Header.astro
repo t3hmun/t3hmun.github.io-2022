@@ -5,31 +5,26 @@ const liStyle = "display: inline; padding: 0rem 0.5rem";
 ---
 
 <header>
-  <div
-    class="content-width"
-    style="text-align: center; font-size: 3rem; line-height: 3rem; margin: 1rem auto"
-  >
+  <div>
     {SITE_TITLE}
   </div>
-  <nav class="content-width" style="text-align: center;">
-    <ul
-      style="list-style-type: none; width: auto; max-width: none; padding: 0 0 0 0;"
-    >
-      <li style={liStyle}>
+  <nav>
+    <ul>
+      <li>
         <HeaderLink href="/">Home</HeaderLink>
       </li>
-      <li style={liStyle}>
+      <li>
         <HeaderLink href="/archive">Archive</HeaderLink>
       </li>
-      <li style={liStyle}>
+      <li>
         <HeaderLink href="/about">About</HeaderLink>
       </li>
-      <li style={liStyle}>
+      <li>
         <HeaderLink href="https://github.com/t3hmun" target="_blank"
           >GitHub</HeaderLink
         >
       </li>
-      <li style={liStyle}>
+      <li>
         <button id="theme-toggle">Switch Theme</button>
       </li>
     </ul>

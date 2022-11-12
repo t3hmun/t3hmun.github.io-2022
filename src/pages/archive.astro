@@ -23,7 +23,7 @@ const years = [
   </head>
   <body>
     <Header />
-    <main style="margin-bottom: 1rem;">
+    <main>
       <h1>Archive</h1>
       {
         years.map((year) => (
@@ -35,13 +35,11 @@ const years = [
               )
               .map((post) => (
                 <>
-                  <h3 style="margin: 1rem 0;">
+                  <h3>
                     <a href={post.url}>{post.frontmatter.title}</a>
                   </h3>
-                  <div class="content-width">
-                    <span class="fg-muted" style="margin-right: 1rem">
-                      {friendlyDate(post.frontmatter.pubDate)}
-                    </span>
+                  <div>
+                    <span>{friendlyDate(post.frontmatter.pubDate)}</span>
                     {post.frontmatter.description && (
                       <span>{post.frontmatter.description}</span>
                     )}
