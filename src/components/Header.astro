@@ -4,6 +4,65 @@ import { SITE_TITLE } from "../config";
 const liStyle = "display: inline; padding: 0rem 0.5rem";
 ---
 
+<script is:inline>
+  const dark = "dark";
+  const light = "light";
+  const key = "theme";
+
+  activateTheme();
+
+  document.querySelectorAll('[id^="toggle-theme"]').forEach((element) => {
+    element.onclick = () => {
+      toggleTheme();
+    };
+  });
+
+  /** Set the CSS to activate whatever theme is set in localStorage.theme or CSS media. */
+  function activateTheme() {
+    const theme = getLocalTheme() ?? getCssTheme() ?? defaultTheme;
+    if (theme === dark) {
+      document.documentElement.classList.add(dark);
+    } else {
+      document.documentElement.classList.remove(dark);
+    }
+
+    // Clear local storage if user's computer settings match the current stored setting.
+    // Only want to keep a setting persisted while it is differnt from the user's settings.
+    if (theme === getCssTheme()) {
+      localStorage.removeItem(key);
+    }
+  }
+
+  /** Toggle the current theme and set it to persist if it does not match the computer setting. */
+  function toggleTheme() {
+    const localTheme = getLocalTheme();
+    const cssTheme = getCssTheme();
+    const current = localTheme ?? cssTheme ?? defaultTheme;
+
+    const theme = current === light ? dark : light;
+
+    if (theme === cssTheme) {
+      localStorage.removeItem(key);
+    } else {
+      localStorage.setItem(key, theme);
+    }
+
+    activateTheme();
+  }
+
+  function getCssTheme() {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) return dark;
+    if (window.matchMedia("(prefers-color-scheme: light)").matches)
+      return light;
+    return null;
+  }
+
+  function getLocalTheme() {
+    if (localStorage.getItem(key) === dark) return dark;
+    if (localStorage.getItem(key) === light) return light;
+    return null;
+  }
+</script>
 <header>
   <div>
     {SITE_TITLE}
@@ -25,7 +84,7 @@ const liStyle = "display: inline; padding: 0rem 0.5rem";
         >
       </li>
       <li>
-        <button id="theme-toggle">Switch Theme</button>
+        <button id="theme-toggle" onclick="toggleTheme()">Switch Theme</button>
       </li>
     </ul>
   </nav>

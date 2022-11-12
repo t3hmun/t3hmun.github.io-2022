@@ -26,9 +26,9 @@ const {
 
   <body>
     <Header />
-    <main>
+    <main class="bg-white dark:bg-slate-900">
       <article
-        class="prose dark:prose-invert prose-code:before:hidden prose-code:after:hidden mx-auto px-1"
+        class="prose mx-auto px-1 prose-code:before:hidden prose-code:after:hidden dark:prose-invert"
       >
         {heroImage && <img width={720} height={360} src={heroImage} alt="" />}
         <h1>{title}</h1>
