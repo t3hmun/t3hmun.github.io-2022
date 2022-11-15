@@ -1,5 +1,6 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
+import BaseBody from "../layouts/BaseBody.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
@@ -13,11 +14,11 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="min-h-full">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body>
+  <BaseBody>
     <Header title={SITE_TITLE} />
     <main>
       <h1>Home</h1>
@@ -44,5 +45,5 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
       }
     </main>
     <Footer />
-  </body>
+  </BaseBody>
 </html>
