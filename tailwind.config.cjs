@@ -6,6 +6,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        main: colors.amber,
         stone: {
           50: "#F8F8F7",
           150: "#EEEDEC",

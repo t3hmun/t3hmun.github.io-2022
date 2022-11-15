@@ -28,12 +28,14 @@ const {
   <BaseBody>
     <Header />
     <main>
-      <article
-        class="prose prose-stone mx-auto px-1 prose-code:before:hidden prose-code:after:hidden dark:prose-invert"
-      >
+      <article>
         {heroImage && <img width={720} height={360} src={heroImage} alt="" />}
-        <h1>{title}</h1>
-        <div>
+        <h1
+          class="text-center text-4xl font-bold text-main-600 dark:text-main-500"
+        >
+          {title}
+        </h1>
+        <div class="not-prose mb-3 text-center">
           <span>
             {pubDate && <time>{friendlyDate(pubDate)}</time>}
             {
@@ -46,7 +48,11 @@ const {
             }</span
           >
         </div>
-        <slot />
+        <div
+          class="prose prose-stone mx-auto px-1 prose-code:before:hidden prose-code:after:hidden dark:prose-invert"
+        >
+          <slot />
+        </div>
       </article>
     </main>
     <Footer />

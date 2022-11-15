@@ -66,26 +66,28 @@ const liStyle = "display: inline; padding: 0rem 0.5rem";
 <header
   class="mb-4 bg-stone-300 py-4 text-stone-900 dark:bg-stone-800 dark:text-stone-100"
 >
-  <div>
+  <div
+    class="mb-3 text-center text-4xl font-semibold text-main-500 dark:text-main-500"
+  >
     {SITE_TITLE}
   </div>
   <nav>
-    <ul>
-      <li>
+    <ul class="flex-column flex flex-wrap justify-center">
+      <li class="mx-3">
         <HeaderLink href="/">Home</HeaderLink>
       </li>
-      <li>
+      <li class="mx-3">
         <HeaderLink href="/archive">Archive</HeaderLink>
       </li>
-      <li>
+      <li class="mx-3">
         <HeaderLink href="/about">About</HeaderLink>
       </li>
-      <li>
+      <li class="mx-3">
         <HeaderLink href="https://github.com/t3hmun" target="_blank"
           >GitHub</HeaderLink
         >
       </li>
-      <li>
+      <li class="mx-3">
         <button id="theme-toggle" onclick="toggleTheme()">Switch Theme</button>
       </li>
     </ul>

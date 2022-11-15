@@ -21,28 +21,38 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
   <BaseBody>
     <Header title={SITE_TITLE} />
     <main>
-      <h1>Home</h1>
-      <h2>Welcome</h2>
-      <p>
-        This is my website, which is in the process of being re-written
-        (November 2022). Nothing is ready for viewing.
-      </p>
-      <h2>Recent Posts</h2>
-      {
-        posts.map((post) => (
-          <>
-            <h3>
-              <a href={post.url}>{post.frontmatter.title}</a>
-            </h3>
-            <div>
-              <span>{friendlyDate(post.frontmatter.pubDate)}</span>
-              {post.frontmatter.description && (
-                <span>{post.frontmatter.description}</span>
-              )}
-            </div>
-          </>
-        ))
-      }
+      <h1
+        class="text-center text-4xl font-bold text-main-600 dark:text-main-500"
+      >
+        Home
+      </h1>
+      <div class="prose mx-auto">
+        <h2>Something</h2>
+        <p>
+          This is my website, which is in the process of being re-written
+          (November 2022). Nothing is ready for viewing.
+        </p>
+        <h2>Recent Posts</h2>
+        <ul>
+          {
+            posts.map((post) => (
+              <li>
+                <div class="flex flex-col">
+                  <div>
+                    <a href={post.url}>{post.frontmatter.title}</a>
+                  </div>
+                  <div>
+                    <span>{friendlyDate(post.frontmatter.pubDate)}</span>
+                    {post.frontmatter.description && (
+                      <span>{post.frontmatter.description}</span>
+                    )}
+                  </div>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     </main>
     <Footer />
   </BaseBody>
