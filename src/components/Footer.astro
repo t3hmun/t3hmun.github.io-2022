@@ -3,16 +3,21 @@ const today = new Date();
 ---
 
 <footer
-  class="mt-4 flex flex-col bg-stone-300 py-4 text-stone-900 dark:bg-stone-800 dark:text-stone-100"
+  class="mt-12 flex flex-col bg-stone-200 py-4 text-stone-900 dark:bg-stone-800 dark:text-stone-100"
 >
   <div class="mx-auto">
-    <a class="text-main-700 dark:text-main-500" href="#"
-      >Top<span class="px-2">⭱</span>
+    <a
+      class="text-main-700 hover:text-main-500 dark:text-main-500 dark:hover:text-main-400"
+      href="#"
+      ><span class="px-2">↑</span>Goto Top<span class="px-2">↑</span>
     </a>
   </div>
   <div class="mx-auto">
     <span class="text-main-800"
-      >&copy; {today.getFullYear()} t3hmun | CC-BY-SA-4.0</span
-    >
+      >&copy; {today.getFullYear()} t3hmun | <a
+        class="text-main-700 hover:text-main-500 dark:text-main-500 dark:hover:text-main-400"
+        href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA-4.0</a
+      >
+    </span>
   </div>
 </footer>

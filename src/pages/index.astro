@@ -21,37 +21,34 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
   <BaseBody>
     <Header title={SITE_TITLE} />
     <main>
-      <h1
-        class="text-center text-4xl font-bold text-main-600 dark:text-main-500"
-      >
-        Home
-      </h1>
-      <div class="prose mx-auto">
-        <h2>Something</h2>
-        <p>
-          This is my website, which is in the process of being re-written
-          (November 2022). Nothing is ready for viewing.
+      <div class="container mx-auto max-w-prose">
+        <p class="my-6 text-center text-lg">
+          This is my personal blog, notes on whatever I'm thinking about.
         </p>
-        <h2>Recent Posts</h2>
-        <ul>
-          {
-            posts.map((post) => (
-              <li>
-                <div class="flex flex-col">
-                  <div>
-                    <a href={post.url}>{post.frontmatter.title}</a>
-                  </div>
-                  <div>
-                    <span>{friendlyDate(post.frontmatter.pubDate)}</span>
-                    {post.frontmatter.description && (
-                      <span>{post.frontmatter.description}</span>
-                    )}
-                  </div>
-                </div>
-              </li>
-            ))
-          }
-        </ul>
+        {
+          posts.map((post) => (
+            <div class="mb-3 flex flex-col justify-between">
+              <div class="mb-1 flex flex-col">
+                <h2 class="text-main-700 dark:text-main-500 text-2xl font-semibold">
+                  <a
+                    class="hover:text-main-500 dark:hover:text-main-400"
+                    href={post.url}
+                  >
+                    {post.frontmatter.title}
+                  </a>
+                </h2>
+                <span class="text-main-900 dark:text-main-600 text-sm">
+                  {friendlyDate(post.frontmatter.pubDate)}
+                </span>
+              </div>
+              <div class="max-w-prose">
+                {post.frontmatter.description && (
+                  <span>{post.frontmatter.description}</span>
+                )}
+              </div>
+            </div>
+          ))
+        }
       </div>
     </main>
     <Footer />
