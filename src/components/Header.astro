@@ -69,14 +69,13 @@ const liStyle = "display: inline; padding: 0rem 0.5rem";
   <div
     class="mb-3 text-center text-4xl font-semibold text-main-600 hover:text-main-500"
   >
-    <a class="dark:text-main-500 dark:hover:text-main-300" href="/"
-      >{SITE_TITLE}</a
+    <a
+      class="text-main-700 hover:text-main-500 dark:text-main-500 dark:hover:text-main-100"
+      href="/">{SITE_TITLE}</a
     >
   </div>
   <nav>
-    <ul
-      class="flex-column items-middle flex flex-wrap justify-center text-main-700 dark:text-main-600"
-    >
+    <ul class="flex-column items-middle flex flex-wrap justify-center">
       <li class="mx-3">
         <HeaderLink href="/">Home</HeaderLink>
       </li>
@@ -89,7 +88,9 @@ const liStyle = "display: inline; padding: 0rem 0.5rem";
         >
       </li>
       <li class="mx-3">
-        <button id="theme-toggle" onclick="toggleTheme()">Switch Theme</button>
+        <button class="main-link" id="theme-toggle" onclick="toggleTheme()"
+          >Switch Theme</button
+        >
       </li>
     </ul>
   </nav>

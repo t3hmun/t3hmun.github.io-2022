@@ -1,0 +1,6 @@
+@tailwind base;
+
+/** Internal navigation links. */
+.main-link {
+  @apply text-main-700 hover:text-main-500 dark:text-main-500 dark:hover:text-main-200;
+}

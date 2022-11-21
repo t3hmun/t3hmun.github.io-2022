@@ -5,6 +5,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { friendlyDate } from "../components/Formats";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import ArticleLink from "../components/ArticleLink.astro";
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
 const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
@@ -24,29 +25,23 @@ const years = [
   </head>
   <BaseBody>
     <Header />
-    <main class="container mx-auto">
-      <p class="font-bold">This page is incomplete</p>
-      <h1>Archive</h1>
+    <main class="container mx-auto max-w-xl">
+      <h1 class="text-center text-4xl font-bold text-main-500">Archive</h1>
       {
         years.map((year) => (
           <section>
-            <h2>{year}</h2>
+            <h2 class="text-main-500 my-3 text-3xl font-semibold">{year}</h2>
             {posts
               .filter(
                 (p) => new Date(p.frontmatter.pubDate).getFullYear() === year
               )
               .map((post) => (
-                <>
-                  <h3>
-                    <a href={post.url}>{post.frontmatter.title}</a>
-                  </h3>
-                  <div>
-                    <span>{friendlyDate(post.frontmatter.pubDate)}</span>
-                    {post.frontmatter.description && (
-                      <span>{post.frontmatter.description}</span>
-                    )}
-                  </div>
-                </>
+                <ArticleLink
+                  title={post.frontmatter.title}
+                  url={post.url}
+                  pubDate={post.frontmatter.pubDate}
+                  description={post.frontmatter.description}
+                />
               ))}
           </section>
         ))
