@@ -1,5 +1,6 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
+import BaseBody from "../layouts/BaseBody.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
@@ -13,38 +14,43 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="min-h-full">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body>
+  <BaseBody>
     <Header title={SITE_TITLE} />
     <main>
-      <h1>Home</h1>
-      <h2>Welcome</h2>
-      <p>
-        This is my website, which is in the process of being re-written
-        (November 2022). Nothing is ready for viewing.
-      </p>
-      <h2>Recent Posts</h2>
-      {
-        posts.map((post) => (
-          <>
-            <h3 style="margin: 1rem 0;">
-              <a href={post.url}>{post.frontmatter.title}</a>
-            </h3>
-            <div class="content-width">
-              <span class="fg-muted" style="margin-right: 1rem">
-                {friendlyDate(post.frontmatter.pubDate)}
-              </span>
-              {post.frontmatter.description && (
-                <span>{post.frontmatter.description}</span>
-              )}
+      <div class="container mx-auto max-w-prose">
+        <p class="my-6 text-center text-lg">
+          This is my personal blog, notes on whatever I'm thinking about.
+        </p>
+        {
+          posts.map((post) => (
+            <div class="mb-3 flex flex-col justify-between">
+              <div class="mb-1 flex flex-col">
+                <h2 class="text-main-700 dark:text-main-500 text-2xl font-semibold">
+                  <a
+                    class="hover:text-main-500 dark:hover:text-main-400"
+                    href={post.url}
+                  >
+                    {post.frontmatter.title}
+                  </a>
+                </h2>
+                <span class="text-main-900 dark:text-main-600 text-sm">
+                  {friendlyDate(post.frontmatter.pubDate)}
+                </span>
+              </div>
+              <div class="max-w-prose">
+                {post.frontmatter.description && (
+                  <span>{post.frontmatter.description}</span>
+                )}
+              </div>
             </div>
-          </>
-        ))
-      }
+          ))
+        }
+      </div>
     </main>
     <Footer />
-  </body>
+  </BaseBody>
 </html>

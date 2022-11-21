@@ -4,33 +4,92 @@ import { SITE_TITLE } from "../config";
 const liStyle = "display: inline; padding: 0rem 0.5rem";
 ---
 
-<header>
+<script is:inline>
+  const dark = "dark";
+  const light = "light";
+  const key = "theme";
+
+  activateTheme();
+
+  document.querySelectorAll('[id^="toggle-theme"]').forEach((element) => {
+    element.onclick = () => {
+      toggleTheme();
+    };
+  });
+
+  /** Set the CSS to activate whatever theme is set in localStorage.theme or CSS media. */
+  function activateTheme() {
+    const theme = getLocalTheme() ?? getCssTheme() ?? defaultTheme;
+    if (theme === dark) {
+      document.documentElement.classList.add(dark);
+    } else {
+      document.documentElement.classList.remove(dark);
+    }
+
+    // Clear local storage if user's computer settings match the current stored setting.
+    // Only want to keep a setting persisted while it is differnt from the user's settings.
+    if (theme === getCssTheme()) {
+      localStorage.removeItem(key);
+    }
+  }
+
+  /** Toggle the current theme and set it to persist if it does not match the computer setting. */
+  function toggleTheme() {
+    const localTheme = getLocalTheme();
+    const cssTheme = getCssTheme();
+    const current = localTheme ?? cssTheme ?? defaultTheme;
+
+    const theme = current === light ? dark : light;
+
+    if (theme === cssTheme) {
+      localStorage.removeItem(key);
+    } else {
+      localStorage.setItem(key, theme);
+    }
+
+    activateTheme();
+  }
+
+  function getCssTheme() {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) return dark;
+    if (window.matchMedia("(prefers-color-scheme: light)").matches)
+      return light;
+    return null;
+  }
+
+  function getLocalTheme() {
+    if (localStorage.getItem(key) === dark) return dark;
+    if (localStorage.getItem(key) === light) return light;
+    return null;
+  }
+</script>
+<header
+  class="mb-4 bg-stone-200 py-4 text-stone-900 dark:bg-stone-800 dark:text-stone-100"
+>
   <div
-    class="content-width"
-    style="text-align: center; font-size: 3rem; line-height: 3rem; margin: 1rem auto"
+    class="mb-3 text-center text-4xl font-semibold text-main-600 hover:text-main-500"
   >
-    {SITE_TITLE}
-  </div>
-  <nav class="content-width" style="text-align: center;">
-    <ul
-      style="list-style-type: none; width: auto; max-width: none; padding: 0 0 0 0;"
+    <a class="dark:text-main-500 dark:hover:text-main-300" href="/"
+      >{SITE_TITLE}</a
     >
-      <li style={liStyle}>
+  </div>
+  <nav>
+    <ul
+      class="flex-column items-middle flex flex-wrap justify-center text-main-700 dark:text-main-600"
+    >
+      <li class="mx-3">
         <HeaderLink href="/">Home</HeaderLink>
       </li>
-      <li style={liStyle}>
+      <li class="mx-3">
         <HeaderLink href="/archive">Archive</HeaderLink>
       </li>
-      <li style={liStyle}>
-        <HeaderLink href="/about">About</HeaderLink>
-      </li>
-      <li style={liStyle}>
+      <li class="mx-3">
         <HeaderLink href="https://github.com/t3hmun" target="_blank"
           >GitHub</HeaderLink
         >
       </li>
-      <li style={liStyle}>
-        <button id="theme-toggle">Switch Theme</button>
+      <li class="mx-3">
+        <button id="theme-toggle" onclick="toggleTheme()">Switch Theme</button>
       </li>
     </ul>
   </nav>

@@ -53,16 +53,7 @@ The relatively unrestricted circulation of information—including revolutionary
 
 ###### H6
 
-Witness, a `h6` which is still bigger than normal text. I think I once wrote an article with 5 levels of headings. I don't really remember but it probably wasn't good.
-
-## Block Widths
-
-<p class="content-width"> This is a block of text using the full content width. This is too wide for large blocks of text intended for normal reading. This is here as a demonstration, but custom html blocks should not be used for paragraphs of text.</p>
-
-<p class="middle-width"> This is a block of text using the middle width. This is still too wide for large blocks of text intended for normal reading. This is here as a demonstration, but custom html blocks should not be used for paragraphs of text.</p>
-
-This is a normal block of text using the default reading-width.
-This is meant to be the right width for easy reading of large amounts of text.
+A h6. Hopefully these are not needed.
 
 ## Images
 
