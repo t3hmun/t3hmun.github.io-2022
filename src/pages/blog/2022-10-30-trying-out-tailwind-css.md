@@ -1,7 +1,7 @@
 ---
 layout: "../../layouts/BlogPost.astro"
 title: "Trying Out Tailwind CSS"
-description: ""
+description: "My initial impression of Tailwind CSS"
 pubDate: "2022-11-21T22:00:00Z"
 ---
 
