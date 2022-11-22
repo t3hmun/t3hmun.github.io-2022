@@ -27,11 +27,11 @@ const years = [
   <BaseBody>
     <Header />
     <main class="container mx-auto max-w-xl">
-      <h1 class="text-center text-4xl font-bold text-main-500">Archive</h1>
+      <h1 class="h1">Archive</h1>
       {
         years.map((year) => (
           <section>
-            <h2 class="text-main-500 my-3 text-3xl font-semibold">{year}</h2>
+            <h2 class="h2 my-3">{year}</h2>
             {posts
               .filter(
                 (p) => new Date(p.frontmatter.pubDate).getFullYear() === year
