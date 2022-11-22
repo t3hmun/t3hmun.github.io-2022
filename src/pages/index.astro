@@ -7,11 +7,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import { friendlyDate } from "../components/Formats";
 import ArticleLink from "../components/ArticleLink.astro";
 
-const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
-  (a, b) =>
-    new Date(b.frontmatter.pubDate).valueOf() -
-    new Date(a.frontmatter.pubDate).valueOf()
-);
+const posts = (await Astro.glob("./blog/*.{md,mdx}"))
+  .filter((p) => !p.frontmatter.draft)
+  .sort(
+    (a, b) =>
+      new Date(b.frontmatter.pubDate).valueOf() -
+      new Date(a.frontmatter.pubDate).valueOf()
+  );
 ---
 
 <!DOCTYPE html>
