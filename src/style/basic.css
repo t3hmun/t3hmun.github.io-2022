@@ -16,3 +16,17 @@
 .h3 {
   @apply text-2xl font-semibold text-main-300 dark:text-main-700;
 }
+
+:root {
+  --astro-code-color-text: #eeeeee;
+  --astro-code-color-background: #333333;
+  --astro-code-token-constant: #660000;
+  --astro-code-token-string: #770000;
+  --astro-code-token-comment: #880000;
+  --astro-code-token-keyword: #990000;
+  --astro-code-token-parameter: #aa0000;
+  --astro-code-token-function: #bb0000;
+  --astro-code-token-string-expression: #cc0000;
+  --astro-code-token-punctuation: #dd0000;
+  --astro-code-token-link: #ee0000;
+}
