@@ -9,9 +9,6 @@ export default defineConfig({
   site: "https://t3hmun.github.io",
   integrations: [sitemap(), tailwind()],
   markdown: {
-    shikiConfig: {
-      theme: "css-variables",
-    },
-    syntaxHighlight: "shiki",
+    syntaxHighlight: "prism",
   },
 });

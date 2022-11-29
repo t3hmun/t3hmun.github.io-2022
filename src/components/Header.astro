@@ -9,6 +9,34 @@ const liStyle = "display: inline; padding: 0rem 0.5rem";
   const light = "light";
   const key = "theme";
 
+  const darkCss = {
+    "--astro-code-color-text": "#f6f8fa",
+    "--astro-code-color-background": "#24292e",
+    "--astro-code-token-constant": "#c8e1ff",
+    "--astro-code-token-string": "#79b8ff",
+    "--astro-code-token-comment": "#959da5",
+    "--astro-code-token-keyword": "#ea4a5a",
+    "--astro-code-token-parameter": "#f6f8fa",
+    "--astro-code-token-function": "#005cc5",
+    "--astro-code-token-string-expression": "#cc0000",
+    "--astro-code-token-punctuation": "#dd0000",
+    "--astro-code-token-link": "#ee0000",
+  };
+
+  const lightCss = {
+    "--astro-code-color-text": "#eeeeee",
+    "--astro-code-color-background": "#eeeeee",
+    "--astro-code-token-constant": "#660000",
+    "--astro-code-token-string": "#770000",
+    "--astro-code-token-comment": "#880000",
+    "--astro-code-token-keyword": "#990000",
+    "--astro-code-token-parameter": "#aa0000",
+    "--astro-code-token-function": "#bb0000",
+    "--astro-code-token-string-expression": "#cc0000",
+    "--astro-code-token-punctuation": "#dd0000",
+    "--astro-code-token-link": "#ee0000",
+  };
+
   activateTheme();
 
   document.querySelectorAll('[id^="toggle-theme"]').forEach((element) => {
@@ -22,8 +50,14 @@ const liStyle = "display: inline; padding: 0rem 0.5rem";
     const theme = getLocalTheme() ?? getCssTheme() ?? defaultTheme;
     if (theme === dark) {
       document.documentElement.classList.add(dark);
+      for (let key in darkCss)
+        document.documentElement.style.setProperty(key, darkCss[key]);
     } else {
       document.documentElement.classList.remove(dark);
+      for (let key in lightCss) {
+        console.log(lightCss[key]);
+        document.documentElement.style.setProperty(key, lightCss[key]);
+      }
     }
 
     // Clear local storage if user's computer settings match the current stored setting.
