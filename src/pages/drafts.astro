@@ -1,0 +1,53 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import BaseBody from "../layouts/BaseBody.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import ArticleLink from "../components/ArticleLink.astro";
+
+// Use Astro.glob() to fetch all posts, and then sort them by date.
+const posts = (await Astro.glob("./blog/*.{md,mdx}"))
+  .filter((p) => p.frontmatter.draft)
+  .sort(
+    (a, b) =>
+      new Date(b.frontmatter.pubDate).valueOf() -
+      new Date(a.frontmatter.pubDate).valueOf()
+  );
+const years = [
+  ...new Set(posts.map((p) => new Date(p.frontmatter.pubDate).getFullYear())),
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <BaseBody>
+    <Header />
+    <main class="container mx-auto max-w-xl">
+      <h1 class="h1">Archive</h1>
+      {
+        years.map((year) => (
+          <section>
+            <h2 class="h2 my-3">{year}</h2>
+            {posts
+              .filter(
+                (p) => new Date(p.frontmatter.pubDate).getFullYear() === year
+              )
+              .map((post) => (
+                <ArticleLink
+                  title={post.frontmatter.title}
+                  url={post.url}
+                  pubDate={post.frontmatter.pubDate}
+                  description={post.frontmatter.description}
+                />
+              ))}
+          </section>
+        ))
+      }
+    </main>
+    <Footer />
+  </BaseBody>
+</html>

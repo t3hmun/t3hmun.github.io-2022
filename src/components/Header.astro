@@ -8,6 +8,7 @@ const liStyle = "display: inline; padding: 0rem 0.5rem";
   const dark = "dark";
   const light = "light";
   const key = "theme";
+  const cssId = "syntax-highlight-css";
 
   activateTheme();
 
@@ -22,8 +23,10 @@ const liStyle = "display: inline; padding: 0rem 0.5rem";
     const theme = getLocalTheme() ?? getCssTheme() ?? defaultTheme;
     if (theme === dark) {
       document.documentElement.classList.add(dark);
+      document.getElementById(cssId).setAttribute("href", "/syntax-dark.css");
     } else {
       document.documentElement.classList.remove(dark);
+      document.getElementById(cssId).setAttribute("href", "/syntax-light.css");
     }
 
     // Clear local storage if user's computer settings match the current stored setting.
