@@ -1,7 +1,7 @@
 ---
 layout: "../../layouts/BlogPost.astro"
 title: "Dark Light Theming Code in Astro"
-description: "Good light and dark theming for code blocks generated from md wasn't straight forward."
+description: "Good light and dark theming for code blocks generated from markdown wasn't as straight forward as I'd hoped."
 pubDate: "2022-11-30T23:30:00Z"
 ---
 
