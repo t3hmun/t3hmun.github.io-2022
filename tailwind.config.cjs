@@ -25,18 +25,23 @@ module.exports = {
             },
             h2: {
               color: theme("colors.amber.500"),
+              borderBottom: "0.1rem solid",
             },
             h3: {
               color: theme("colors.amber.600"),
+              borderBottom: "0.1rem solid",
             },
             h4: {
               color: theme("colors.amber.700"),
+              borderBottom: "0.1rem solid",
             },
             h5: {
               color: theme("colors.amber.800"),
+              borderBottom: "0.1rem solid",
             },
             h6: {
               color: theme("colors.amber.900"),
+              borderBottom: "0.1rem solid",
             },
           },
         },
