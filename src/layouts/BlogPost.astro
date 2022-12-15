@@ -30,7 +30,7 @@ const {
     <main>
       <article>
         {heroImage && <img width={720} height={360} src={heroImage} alt="" />}
-        <h1 class="h1 my-3">
+        <h1 class="h1 my-3 mx-auto max-w-2xl">
           {title}
         </h1>
         <div class="my-3 text-center">
@@ -46,9 +46,18 @@ const {
             }</span
           >
         </div>
+        <!-- This prose bussiness is so elegant. Counldn't get the header widths to work in the tailwind.conf.cjs typography:DEFAULT:css. 
+          The whole point of this is to allow 
+          * code and images to take up 100ch max width, 
+          * bullets and other special blocks of text to take up a wide-reading width (2xl)
+          * p and all other normal reading text down to 66ch, a nice smooth reading block width
+          With the underlines the headings can take up full page width
+          Without the underlines the need to be 2xl max so single word headings flow into the text. 
+        -->
         <div
-          class="prose prose-stone mx-auto px-1 prose-code:before:hidden prose-code:after:hidden dark:prose-invert"
+          class="prose prose-stone mx-auto max-w-[100ch] px-1 prose-headings:mx-auto prose-headings:max-w-2xl prose-p:mx-auto prose-p:max-w-[64ch] prose-blockquote:mx-auto prose-blockquote:max-w-2xl prose-code:before:hidden prose-code:after:hidden prose-ol:mx-auto prose-ol:max-w-2xl prose-ul:mx-auto prose-ul:max-w-2xl prose-ul:list-outside prose-table:mx-auto prose-table:max-w-2xl dark:prose-invert"
         >
+          <!-- prose-h2:mx-auto prose-h2:max-w-2xl prose-h3:mx-auto prose-h3:max-w-2xl prose-h3:underline prose-h4:mx-auto prose-h4:max-w-2xl prose-h5:mx-auto prose-h5:max-w-2xl prose-h6:mx-auto prose-h6:max-w-2xl  -->
           <slot />
         </div>
       </article>

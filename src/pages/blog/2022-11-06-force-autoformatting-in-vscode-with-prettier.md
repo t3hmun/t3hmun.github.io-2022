@@ -23,7 +23,7 @@ When working in VSCode, I set Prettier to format on save in the workspace settin
 
 Create setting for the project `./.vscode/settings.json`.
 
-```jsonc
+```json
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
