@@ -20,3 +20,5 @@ There are some more things I want to try when I re-write:
     - Then I can dump Tailwind typography
 - Add interactive stuff using Astro islands
     - I did have an idea for what I wanted to do but now I've forgotten.
+- Get round to importing the pages from my old blog site
+
